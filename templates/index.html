@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a class="back" href="#back">
+          <i class="fas fa-chevron-left"></i>
+          BACK
+        </a>
+      </div>
+      <div class="navbar-right">
+        <form class="example" action="/action_page.php">
+          <input type="text" placeholder="Search" name="search" />
+          <button type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container-left">
+        <div class="upload-materi">
+          <h2>Materi Pembelajaran*</h2>
+          <textarea placeholder="Tuliskan deskripsi materi pelajaran" name="materi" form="usrform"></textarea>
+        </div>
+        <br>
+        <div class="upload-video">
+          <form method="POST">
+            Modul
+            <input type="text" name="modul">
+            <br>
+            <br>
+            Sub-Modul
+            <input type="text" name="sub-modul">
+            <br>
+            <br>
+            Link Video
+            <input type="text" name="link-video" id="usrform">
+            <br>
+            <br>
+            <input type="submit">
+          </form>
+        </div>
+    </div>
+
+    <div class="container-right">A</div>
+    </div>
+  </body>
+</html>
