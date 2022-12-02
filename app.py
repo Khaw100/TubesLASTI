@@ -22,9 +22,10 @@ app.config['SECRET_KEY'] = 'supersecretkey'
 mysql = MySQL(app)
 
 
-# @app.route("/", methods=["GET","POST"])
-# def index():
-#     return render_template("index.html")
+@app.route("/t", methods=["GET","POST"])
+def index():
+    return render_template("tutor.html")
+
 
 @app.route("/", methods=["GET","POST"])
 def upload():

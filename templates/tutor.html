@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/tutor.css" />
+    <title>Dicoding</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="navbar-background">
+      <div class="navbar">
+        <div class="navbar-left">
+          <div class="back-icon">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+          <div class="nama-kelas">
+            <h1>Nama Kelas</h1>
+          </div>
+        </div>
+        <div class="navbar-right">
+          <div class="search-bar">
+            <div class="glass-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <input type="text" placeholder="Cari modul/konten" />
+          </div>
+          <div class="setting-icon">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container-left">
+        <div class="unggah-video">
+          <h2>Unggah Video<sup class="bintang">*</sup></h2>
+          <button class="button-upload">
+            <i class="fa-solid fa-upload"></i>
+            <p>Tambah</p>
+          </button>
+        </div>
+        <div class="materi-pembelajaran">
+          <h2>Materi Pembelajaran<sup class="bintang">*</sup></h2>
+          <form id="form">
+            <textarea
+              placeholder="Tuliskan deskripsi materi pelajaran"
+              name="materi"
+              form="usrform"
+            ></textarea>
+            <div class="buttons">
+                <button class="submit">Submit</button>
+                <button type="button" class="batal">Batal</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="container-right"></div>
+    </div>
+  </body>
+</html>
