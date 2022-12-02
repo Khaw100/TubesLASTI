@@ -5,11 +5,11 @@
   font-family: "Quicksand", sans-serif;
 }
 .navbar-background {
-  width: 100vw;
+  
   display: flex;
   justify-content: center;
   height: 70px;
-  border: 1px solid #bfbfbf;
+  border-bottom: 1px solid #bfbfbf;
 }
 
 .navbar {
@@ -69,59 +69,28 @@
   color: #3f3f46;
   width: 90%;
   margin: 0 auto;
+
 }
 .container-left {
-  width: 80%;
+  width: 100%;
   row-gap: 30px;
   display: flex;
   flex-direction: column;
 }
-
-.unggah-video {
+.video-materi {
   display: flex;
-  flex-direction: column;
   row-gap: 16px;
+  flex-direction: column;
+  
 }
-.input-video{
+.video-materi iframe {
+  margin: 0 auto;
+}
+.materi{
     display: flex;
-    column-gap: 10px;
-    align-items: center;
-}
-.input-video i{
-    font-size: 25px;
-    color: #ff0000;
-}
-.input-video input{
-    padding: 3px 5px;
-    width: 250px;
-}
-.bintang{
-  color: #e6352b;
-}
-
-.materi-pembelajaran{
-    display: flex;
-    flex-direction: column;
     row-gap: 16px;
+    flex-direction: column;
 }
-.materi-pembelajaran textarea{
-    resize: none;
-    height: 35vh;
-    width: 100%;
-}
-
-.buttons{
-display: flex;
-column-gap: 15px;
-}
-.buttons button{
-    border: none;
-    padding: 10px 25px;
-    font-weight: 600;
-    background-color: transparent;
-    cursor: pointer;
-}
-.buttons button:first-child{
-    background-color: #2d3e50;
-    color: white;
+.materi p{
+    font-weight: 400;
 }

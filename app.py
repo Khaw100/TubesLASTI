@@ -21,10 +21,40 @@ app.config['SECRET_KEY'] = 'supersecretkey'
 
 mysql = MySQL(app)
 
-
-@app.route("/t", methods=["GET","POST"])
+@app.route("/tutor", methods=["GET","POST"])
 def index():
     return render_template("tutor.html")
+
+# http://127.0.0.1:5000/tutor/0/modul/0/0
+@app.route("/tutor/<kelas>/modul/<modul>/<submodul>", methods=["GET","POST"])
+def tutor(kelas,modul,submodul):
+    cur = mysql.connection.cursor()
+    if request.method =="POST":
+        linkYTB = request.form['link-youtube']
+        linkYTB = linkYTB.replace('watch?v=',"embed/")
+        materi = request.form['materi']
+        print(linkYTB,materi)
+        namaSubModul = 'Persiapan Belajar'
+        query = f"INSERT INTO sub_modul VALUES ({submodul},'{namaSubModul}',{modul}, '{linkYTB}', '{materi}')"
+        print(query)
+        cur.execute(query)
+        mysql.connection.commit()
+        print('######### TEST ###########')
+    print(kelas,modul,submodul)
+    return render_template("tutor.html")
+
+@app.route("/pengguna/<kelas>/modul/<modul>/<submodul>", methods=["GET","POST"])
+def pengguna(kelas,modul,submodul):
+    cur = mysql.connection.cursor()
+    query = f'select video,materi from sub_modul where id_sub_modul = {submodul} and id_modul = {modul}'
+    cur.execute(query)
+    print(query)
+    data = cur.fetchall()
+    if len(data) == 0:
+        data = (("","Materi belum dibuat"),)
+    print(f'data: {data}')
+    # print(data[0][0])
+    return render_template('pengguna.html',data=data)
 
 
 @app.route("/", methods=["GET","POST"])
