@@ -22,34 +22,57 @@ app.config['SECRET_KEY'] = 'supersecretkey'
 mysql = MySQL(app)
 
 
-@app.route("/", methods=["GET","POST"])
-def index():
-    return render_template("index.html")
+# @app.route("/", methods=["GET","POST"])
+# def index():
+#     return render_template("index.html")
 
-@app.route("/uploadmateri", methods=["GET","POST"])
+@app.route("/", methods=["GET","POST"])
 def upload():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM sub_modul')
-
-    # Determine sub_modul_id
-    data = cur.fetchall()
-    if len(data) == 0:
-        submodul_id = 0
-    else:
-        submodul_id = len(data)
-
     if request.method == "POST":
+        cur.execute('SELECT * FROM sub_modul')
+
+        # Determine sub_modul_id
+        data = cur.fetchall()
+        if len(data) == 0:
+            submodul_id = 0
+        else:
+            submodul_id = len(data)
+
         modul = request.values.get("modul")
         submodul = request.values.get("sub-modul")
-        cur.execute(f'SELECT id_modul FROM modul WHERE modul = "{modul}"')
+        
+        cur.execute(f'SELECT id_modul FROM modul WHERE nama_modul = "{modul}"')
         data_id = cur.fetchall()
-        # modul_id = data_id[0]
+        print(data_id)
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa")
+        modul_id = 0
         link = request.values.get("link-video")
         materi = request.values.get("materi")
         query = f"INSERT INTO sub_modul VALUES ({submodul_id},'{submodul}','{modul_id}', '{link}', '{materi}')"
         cur.execute(query)
-        mysql.connection.commit()
-        redirect("/")
+    mysql.connection.commit()
+
     return render_template('upload.html')
 
 
+# print("AAAAAAAAAAA")
+
+
+    # cur = mysql.connection.cursor()
+    # cur.execute('SELECT * FROM sub_modul')
+
+    # # Determine sub_modul_id
+    # data = cur.fetchall()
+    # if len(data) == 0:
+    #     submodul_id = 0
+    # else:
+    #     submodul_id = len(data)
+    # cur.execute(f'SELECT id_modul FROM modul WHERE modul = "{modul}"')
+    # data_id = cur.fetchall()
+    # modul_id = data_id[0]
+    # link = request.values.get("link-video")
+    # materi = request.values.get("materi")
+    # query = f"INSERT INTO sub_modul VALUES ({submodul_id},'{submodul}','{modul_id}', '{link}', '{materi}')"
+    # cur.execute(query)
+    # mysql.connection.commit()
