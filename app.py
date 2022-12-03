@@ -4,6 +4,7 @@ from flask_mysqldb import MySQL
 from flask_wtf import FlaskForm
 from wtforms import FileField, SubmitField
 from werkzeug.utils import secure_filename
+from urllib.parse import urlparse
 import os
 # import jwt
 # import datetime
@@ -21,6 +22,15 @@ app.config['SECRET_KEY'] = 'supersecretkey'
 
 mysql = MySQL(app)
 
+def convertLink(link):
+    link = urlparse(link)
+    link = link.query.split('=')[1]
+    tmp = link[-2:]
+    if(tmp == "&t"):
+        link = link.replace(tmp,"")
+    link = "https://www.youtube.com/embed/"+link
+    return link
+
 @app.route("/tutor", methods=["GET","POST"])
 def index():
     return render_template("tutor.html")
@@ -31,7 +41,7 @@ def tutor(kelas,modul,submodul):
     cur = mysql.connection.cursor()
     if request.method =="POST":
         linkYTB = request.form['link-youtube']
-        linkYTB = linkYTB.replace('watch?v=',"embed/")
+        linkYTB = convertLink(linkYTB)
         materi = request.form['materi']
         namaSubModul = 'Persiapan Belajar'
         if materi == '' and linkYTB != '':
@@ -56,7 +66,7 @@ def addSub(kelas,modul,submodul):
     cur = mysql.connection.cursor()
     if request.method =="POST":
         linkYTB = request.form['link-youtube']
-        linkYTB = linkYTB.replace('watch?v=',"embed/")
+        linkYTB = convertLink(linkYTB)
         materi = request.form['materi']
         print(linkYTB,materi)
         namaSubModul = 'Persiapan Belajar'
@@ -110,7 +120,7 @@ def upload():
         cur.execute(query)
     mysql.connection.commit()
 
-    return render_template('upload.html')
+    return render_template('index.html')
 
 
 # print("AAAAAAAAAAA")
