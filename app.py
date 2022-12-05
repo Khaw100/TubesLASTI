@@ -34,8 +34,7 @@ def convertLink(link):
 @app.route("/tutor", methods=["GET","POST"])
 def index():
     return render_template("tutor.html")
-
-# http://127.0.0.1:5000/edit/tutor/0/modul/0/0
+# http://127.0.0.1:5000/tutor/edit/0/modul/0/0
 @app.route("/tutor/edit/<kelas>/modul/<modul>/<submodul>", methods=["GET","POST"])
 def tutor(kelas,modul,submodul):
     cur = mysql.connection.cursor()
@@ -57,9 +56,8 @@ def tutor(kelas,modul,submodul):
             query = f"update sub_modul set video ='{linkYTB}', materi = '{materi}' where id_sub_modul = {submodul} and id_modul = {modul}"
             cur.execute(query)
             mysql.connection.commit()
-        print('######### TEST ###########')
-    print(kelas,modul,submodul)
     return render_template("tutor.html")
+
 # http://127.0.0.1:5000/tutor/addSub/0/modul/0/0
 @app.route("/tutor/addSub/<kelas>/modul/<modul>/<submodul>", methods=["GET","POST"])
 def addSub(kelas,modul,submodul):

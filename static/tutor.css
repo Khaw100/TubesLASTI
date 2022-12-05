@@ -82,46 +82,46 @@
   flex-direction: column;
   row-gap: 16px;
 }
-.input-video{
-    display: flex;
-    column-gap: 10px;
-    align-items: center;
+.input-video {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
 }
-.input-video i{
-    font-size: 25px;
-    color: #ff0000;
+.input-video i {
+  font-size: 25px;
+  color: #ff0000;
 }
-.input-video input{
-    padding: 3px 5px;
-    width: 250px;
+.input-video input {
+  padding: 3px 5px;
+  width: 250px;
 }
-.bintang{
+.bintang {
   color: #e6352b;
 }
 
-.materi-pembelajaran{
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
+.materi-pembelajaran {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
 }
-.materi-pembelajaran textarea{
-    resize: none;
-    height: 35vh;
-    width: 100%;
+.materi-pembelajaran textarea {
+  resize: none;
+  height: 35vh;
+  width: 100%;
 }
 
-.buttons{
-display: flex;
-column-gap: 15px;
+.buttons {
+  display: flex;
+  column-gap: 15px;
 }
-.buttons button{
-    border: none;
-    padding: 10px 25px;
-    font-weight: 600;
-    background-color: transparent;
-    cursor: pointer;
+.buttons button {
+  border: none;
+  padding: 10px 25px;
+  font-weight: 600;
+  background-color: transparent;
+  cursor: pointer;
 }
-.buttons button:first-child{
-    background-color: #2d3e50;
-    color: white;
+.buttons button:first-child {
+  background-color: #2d3e50;
+  color: white;
 }
